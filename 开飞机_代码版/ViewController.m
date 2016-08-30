@@ -24,10 +24,13 @@ typedef enum{
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self setUI];
+    [self setupUI];
     
 }
--(void) setUI{
+/**
+ * 创建界面
+ */
+-(void) setupUI{
 //       创建图框UIImageView
     UIImageView *bgView = [[UIImageView alloc]init];
     bgView.frame = self.view.frame; //图框大小
@@ -49,6 +52,9 @@ typedef enum{
     
     [planeButton sizeToFit];    //大小调节
     planeButton.center = bgView.center;    //定位
+    
+    
+//    [planeButton addTarget:self action:@selector(<#selector#>) forControlEvents:UIControlEventTouchDown];
     
     [self.view addSubview:planeButton];   //添加到根视图中
     
@@ -88,6 +94,7 @@ typedef enum{
 //    添加事件
     [dirButton addTarget:self action:@selector(clickedDirButton:) forControlEvents:UIControlEventTouchUpInside];
 
+    
     [self.view addSubview:dirButton];    //添加到根目录
 }
 
